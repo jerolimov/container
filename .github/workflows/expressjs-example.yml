@@ -1,4 +1,4 @@
-name: expressjs-example publish docker image
+name: expressjs-example
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 #      - 'expressjs-example/*'
 
 jobs:
-  build:
+  publish docker image:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
