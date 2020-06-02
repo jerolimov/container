@@ -1,7 +1,7 @@
 {
   "name": "expressjs-example",
   "description": "express example",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "main": "index.js",
   "author": "Christoph Jerolimov",
   "license": "MIT",
