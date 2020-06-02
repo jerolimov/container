@@ -15,6 +15,7 @@ jobs:
       - uses: docker/build-push-action@v1
         with:
           path: expressjs-example
+          cache_froms: node:12-alpine
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
