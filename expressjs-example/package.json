@@ -1,0 +1,21 @@
+{
+  "name": "expressjs-example",
+  "description": "express example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Christoph Jerolimov",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/jerolimov/docker"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.6",
+    "typescript": "^3.9.3"
+  }
+}
