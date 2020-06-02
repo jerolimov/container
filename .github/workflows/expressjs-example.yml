@@ -8,7 +8,7 @@ on:
 #      - 'expressjs-example/*'
 
 jobs:
-  publish docker image:
+  publish-docker-image:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
