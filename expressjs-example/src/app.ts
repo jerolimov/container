@@ -4,6 +4,7 @@ import morgan from 'morgan';
 
 const app = express();
 
+app.get('/favicon.ico', (_, res) => res.status(404).send());
 app.use(cookieParser());
 app.use(morgan(process.env.HTTP_LOG_FORMAT || 'dev'));
 
