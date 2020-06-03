@@ -9,7 +9,7 @@ on:
       - 'expressjs-example/*'
 
 jobs:
-  docker-push-docker-hub:
+  publish-docker-hub:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -21,7 +21,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: jerolimov/expressjs-example
           tag_with_ref: true
-  docker-push-github-packages:
+  publish-github-packages:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
