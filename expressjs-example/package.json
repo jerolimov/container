@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "ts-node src",
     "build": "tsc",
-    "start": "npm run build && node out"
+    "start": "node out"
   },
   "dependencies": {
     "cookie-parser": "^1.4.5",

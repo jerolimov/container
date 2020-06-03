@@ -11,4 +11,4 @@ WORKDIR /opt/app
 COPY package.json package-lock.json /opt/app/
 RUN npm install --production
 COPY --from=build /opt/app/out/ /opt/app/out/
-CMD [ "node", "out/index.js" ]
+CMD [ "node", "out" ]
