@@ -4,8 +4,9 @@ on:
   push:
     branches:
       - master
-#    paths:
-#      - 'expressjs-example/*'
+    paths:
+      - '.github/workflows/expressjs-example.yml'
+      - 'expressjs-example/*'
 
 jobs:
   publish-docker-image:
