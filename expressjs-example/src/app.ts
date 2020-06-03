@@ -56,6 +56,11 @@ app.get('/cookies/*', (_, res) => {
   res.redirect('/cookies');
 });
 
+app.get('/env', (_, res) => {
+  const envKeys = Object.keys(process.env);
+  res.type('json').send(JSON.stringify(envKeys, null, 2));
+});
+
 app.get('/*', (req, res) => {
   res.type('json').send(JSON.stringify(lastCalls, null, 2));
 });
