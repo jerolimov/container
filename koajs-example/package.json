@@ -1,0 +1,25 @@
+{
+  "name": "koajs-example",
+  "description": "koajs example",
+  "version": "0.0.1",
+  "author": "Christoph Jerolimov",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/jerolimov/docker"
+  },
+  "scripts": {
+    "dev": "ts-node src",
+    "build": "tsc",
+    "start": "node out"
+  },
+  "dependencies": {
+    "@koa/router": "^9.0.1",
+    "koa": "^2.12.0"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.11.3",
+    "@types/koa__router": "^8.0.2",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.3"
+  }
+}

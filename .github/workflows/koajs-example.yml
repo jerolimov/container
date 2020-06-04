@@ -1,0 +1,36 @@
+name: koajs-example
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - '.github/workflows/koajs-example.yml'
+      - 'koajs-example/*'
+
+jobs:
+  publish-docker-hub:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: docker/build-push-action@v1
+        with:
+          path: koajs-example
+          cache_froms: node:12-alpine
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: jerolimov/koajs-example
+          tag_with_ref: true
+  publish-github-packages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: docker/build-push-action@v1
+        with:
+          path: koajs-example
+          cache_froms: node:12-alpine
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
+          repository: jerolimov/docker/koajs-example
+          tag_with_ref: true
