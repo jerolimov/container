@@ -62,11 +62,11 @@ app.get('/env', (_, res) => {
   res.type('json').send(JSON.stringify(envKeys, null, 2));
 });
 
-app.get('/calls', (req, res) => {
+app.get('/calls', (_, res) => {
   res.type('json').send(JSON.stringify(lastCalls, null, 2));
 });
 
-app.get('/*', (req, res) => {
+app.get('/*', (_, res) => {
   const hostname = os.hostname();
   res.type('json').send(JSON.stringify({
     hostname,
