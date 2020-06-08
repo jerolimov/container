@@ -1,3 +1,4 @@
+import os from 'os';
 import express, { Request } from 'express';
 import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
@@ -61,8 +62,16 @@ app.get('/env', (_, res) => {
   res.type('json').send(JSON.stringify(envKeys, null, 2));
 });
 
-app.get('/*', (req, res) => {
+app.get('/calls', (req, res) => {
   res.type('json').send(JSON.stringify(lastCalls, null, 2));
+});
+
+app.get('/*', (req, res) => {
+  const hostname = os.hostname();
+  res.type('json').send(JSON.stringify({
+    hostname,
+    lastCalls,
+  }, null, 2));
 });
 
 export default app;
