@@ -6,7 +6,7 @@ on:
       - master
     paths:
       - '.github/workflows/expressjs-example.yml'
-      - 'expressjs-example/*'
+      - 'expressjs-example/**'
 
 jobs:
   publish-docker-hub:
