@@ -16,9 +16,7 @@ let calls = 0;
 const extractEssentialRequestData = (req: Request) => {
   return {
     call: ++calls,
-    uptime: process.uptime(),
-    startupTime,
-    currentTime: new Date(),
+    timestamp: new Date(),
     path: req.path,
     query: req.query,
     headers: req.headers.cookie ? { ...req.headers, cookie: '** PROTECTED **' } : req.headers,
@@ -69,7 +67,9 @@ app.get('/calls', (_, res) => {
 app.get('/*', (_, res) => {
   const hostname = os.hostname();
   res.type('json').send(JSON.stringify({
+    uptime: process.uptime(),
     hostname,
+    startupTime,
     lastCalls,
   }, null, 2));
 });
