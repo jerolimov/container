@@ -18,4 +18,14 @@ app.get('/', (_, res) => {
   res.type('text/plain').send(envAsString);
 });
 
+app.get('/:name', (req, res) => {
+  const env: Record<string, string | undefined> = process.env;
+  const value = env[req.params.name];
+  if (typeof value === 'string') {
+    res.type('text/plain').send(value);
+  } else {
+    res.status(404).send();
+  }
+});
+
 export default app;
