@@ -1,3 +1,4 @@
+import os from 'os';
 import express from 'express';
 import morgan from 'morgan';
 
@@ -12,7 +13,7 @@ app.get('/', (_, res) => {
   sortedKeys.sort();
   const envAsString = sortedKeys.reduce(
     (prev, curr) => prev + curr + '=' + env[curr] + '\n',
-    '',
+    '# ' + new Date() + '\n' + '# hostname: ' + os.hostname() + '\n',
   );
   res.type('text/plain').send(envAsString);
 });
