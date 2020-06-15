@@ -1,0 +1,36 @@
+name: env-example
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - '.github/workflows/env-example.yml'
+      - 'env-example/**'
+
+jobs:
+  publish-docker-hub:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: docker/build-push-action@v1
+        with:
+          path: env-example
+          cache_froms: node:12-alpine
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: jerolimov/env-example
+          tag_with_ref: true
+  publish-github-packages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: docker/build-push-action@v1
+        with:
+          path: env-example
+          cache_froms: node:12-alpine
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
+          repository: jerolimov/docker/env-example
+          tag_with_ref: true

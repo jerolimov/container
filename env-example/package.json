@@ -1,0 +1,25 @@
+{
+  "name": "env-example",
+  "description": "env example",
+  "version": "0.0.1",
+  "author": "Christoph Jerolimov",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/jerolimov/docker"
+  },
+  "scripts": {
+    "dev": "ts-node src",
+    "build": "tsc",
+    "start": "node out"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.6",
+    "@types/morgan": "^1.9.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.3"
+  }
+}
