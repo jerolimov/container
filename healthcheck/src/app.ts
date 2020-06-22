@@ -7,10 +7,12 @@ const app = express();
 app.get('/favicon.ico', (_, res) => res.status(404).send());
 app.use(morgan(process.env.HTTP_LOG_FORMAT || 'dev'));
 
+const env: Record<string, string | undefined> = process.env;
+
 const initialState: Record<string, string | undefined> = {
-  ready: 'OK',
-  live: 'OK',
-  startup: 'OK',
+  ready: env.HEALTHCHECK_READY || 'OK',
+  live: env.HEALTHCHECK_LIVE || 'OK',
+  startup: env.HEALTHCHECK_STARTUP || 'OK',
 };
 
 let healthChecks = initialState;
