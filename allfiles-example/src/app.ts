@@ -17,9 +17,4 @@ app.use(serveIndex('/', {
   icons: true,
 }));
 
-app.get('/env', (_, res) => {
-  const envKeys = Object.keys(process.env);
-  res.type('json').send(JSON.stringify(envKeys, null, 2));
-});
-
 export default app;
