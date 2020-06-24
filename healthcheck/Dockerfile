@@ -6,7 +6,9 @@ RUN npm install
 RUN npm run build
 
 FROM node:12-alpine
-EXPOSE 3000
+ENV DOCKER true
+ENV PORT 8080
+EXPOSE 8080
 WORKDIR /opt/app
 COPY package.json package-lock.json /opt/app/
 RUN npm install --production
