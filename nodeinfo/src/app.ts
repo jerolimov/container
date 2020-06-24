@@ -9,13 +9,18 @@ app.use(morgan(process.env.HTTP_LOG_FORMAT || 'dev'));
 
 app.get('/', (_, res) => {
   const data = {
+    timestamp: new Date(),
+    uptime: process.uptime(),
     hostname: os.hostname(),
     platform: os.platform(),
     arch: os.arch(),
     cpus: os.cpus().length,
-    uptime: process.uptime(),
   };
   res.type('json').send(JSON.stringify(data, null, 2));
+});
+
+app.get('/now', (_, res) => {
+  res.type('json').send(new Date().toString());
 });
 
 app.get('/cpu*', (_, res) => {
