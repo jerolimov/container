@@ -9,6 +9,7 @@ app.use(morgan(process.env.HTTP_LOG_FORMAT || 'dev'));
 
 app.get('/', (_, res) => {
   const data = {
+    branch: 'test',
     timestamp: new Date(),
     uptime: process.uptime(),
     hostname: os.hostname(),
