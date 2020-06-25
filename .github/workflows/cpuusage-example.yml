@@ -1,0 +1,36 @@
+name: cpuusage-example
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - '.github/workflows/cpuusage-example.yml'
+      - 'cpuusage-example/**'
+
+jobs:
+  publish-docker-hub:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: docker/build-push-action@v1
+        with:
+          path: cpuusage-example
+          cache_froms: node:12-alpine
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: jerolimov/cpuusage-example
+          tag_with_ref: true
+  publish-github-packages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: docker/build-push-action@v1
+        with:
+          path: cpuusage-example
+          cache_froms: node:12-alpine
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
+          repository: jerolimov/docker/cpuusage-example
+          tag_with_ref: true
