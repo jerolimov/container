@@ -1,0 +1,17 @@
+{
+  "name": "failing-build",
+  "description": "failing-build example",
+  "version": "0.0.1",
+  "author": "Christoph Jerolimov",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/jerolimov/docker"
+  },
+  "scripts": {
+    "dev": "false",
+    "build": "false",
+    "start": "false"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
