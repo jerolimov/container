@@ -16,6 +16,7 @@ app.get('/', (_, res) => {
     platform: os.platform(),
     arch: os.arch(),
     cpus: os.cpus().length,
+    lastCommit: '3:31',
   };
   res.type('json').send(JSON.stringify(data, null, 2));
 });
