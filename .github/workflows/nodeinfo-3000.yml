@@ -1,0 +1,36 @@
+name: nodeinfo-3000
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - '.github/workflows/nodeinfo-3000.yml'
+      - 'nodeinfo-3000/**'
+
+jobs:
+  publish-docker-hub:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: docker/build-push-action@v1
+        with:
+          path: nodeinfo-3000
+          cache_froms: node:12-alpine
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: jerolimov/nodeinfo-3000
+          tag_with_ref: true
+  publish-github-packages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: docker/build-push-action@v1
+        with:
+          path: nodeinfo-3000
+          cache_froms: node:12-alpine
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
+          repository: jerolimov/docker/nodeinfo-3000
+          tag_with_ref: true
