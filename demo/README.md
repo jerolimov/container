@@ -1,37 +1,18 @@
-Available on Quay:
+Available on Docker and Quay:
 
 ```
-quay.io/jerolimov/demo:latest
-```
-
-```
-quay.io/jerolimov/demo:2
+docker.io/jerolimov/demo
 ```
 
 ```
-quay.io/jerolimov/demo:2.2
+quay.io/jerolimov/demo
 ```
 
-```
-quay.io/jerolimov/demo:2.1
-```
+Available tags:
 
-```
-quay.io/jerolimov/demo:2.0
-```
-
-```
-quay.io/jerolimov/demo:1
-```
-
-```
-quay.io/jerolimov/demo:1.2
-```
-
-```
-quay.io/jerolimov/demo:1.1
-```
-
-```
-quay.io/jerolimov/demo:1.0
-```
+* `2.2`, `2`, `latest`
+* `2.1`
+* `2.0`
+* `1.2`, `1`
+* `1.1`
+* `1.0`
